@@ -1,0 +1,6 @@
+{
+  "name": "KARACHI FORGOT",
+  "description": "Civic Transparency, Public Infrastructure Monitoring, Issue Reporting, and Smart Waste Management for Karachi.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
