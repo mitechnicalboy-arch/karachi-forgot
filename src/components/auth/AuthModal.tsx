@@ -156,145 +156,105 @@ export const AuthModal: React.FC = () => {
         </div>
 
         <div className="p-6 space-y-5 max-h-[80vh] overflow-y-auto">
-          {/* Designated Credentials for All Platform Roles */}
-          <div className="bg-slate-900 text-white rounded-2xl p-4 border border-slate-800 space-y-3.5 shadow-md">
+          {/* Designated Platform Roles (Only Roles Displayed) */}
+          <div className="bg-slate-900 text-white rounded-2xl p-4 border border-slate-800 space-y-3 shadow-md">
             <div className="flex items-center justify-between">
-              <div>
-                <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-                  <Key size={14} className="text-emerald-400" />
-                  <span>Authorized Role Credentials</span>
-                </h4>
-                <p className="text-[11px] text-slate-400">
-                  Select any role to auto-populate credentials for testing and inspection:
-                </p>
-              </div>
+              <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <Shield size={14} className="text-emerald-400" />
+                <span>Select Role</span>
+              </span>
               <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full border border-slate-700">
                 4 Official Roles
               </span>
             </div>
 
-            {/* 4 Role Credentials Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            {/* 4 Roles Only Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               
               {/* Role 1: Platform Admin */}
-              <div 
+              <button
+                type="button"
                 onClick={() => {
+                  setSelectedRole('admin');
                   setEmail('admin@karachiforgot.gov.pk');
                   setPassword('Admin@123');
-                  setSelectedRole('admin');
                   setFormError('');
                 }}
-                className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
-                  email === 'admin@karachiforgot.gov.pk'
-                    ? 'bg-rose-950/40 border-rose-500 shadow-xs ring-1 ring-rose-500/50'
-                    : 'bg-slate-950/60 border-slate-800 hover:border-rose-500/50 hover:bg-slate-950'
+                className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center gap-2 transition-all cursor-pointer ${
+                  selectedRole === 'admin'
+                    ? 'bg-rose-950/60 border-rose-500 text-rose-300 ring-1 ring-rose-500/60 shadow-xs'
+                    : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 hover:bg-slate-950'
                 }`}
               >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[11px] font-bold text-rose-400 flex items-center gap-1.5">
-                    <Shield size={12} />
-                    <span>Administrator</span>
-                  </span>
-                  <span className="text-[9px] font-mono text-rose-300 bg-rose-950 px-1.5 py-0.2 rounded border border-rose-800/40">Only 1 Admin</span>
+                <div className={`p-1.5 rounded-lg ${selectedRole === 'admin' ? 'bg-rose-500/20 text-rose-400' : 'bg-slate-800 text-slate-400'}`}>
+                  <Shield size={16} />
                 </div>
-                <div className="text-[11px] text-slate-300 font-mono truncate">admin@karachiforgot.gov.pk</div>
-                <div className="flex items-center justify-between mt-1 text-[10px] text-slate-400">
-                  <span>Pass: <strong className="text-emerald-400 font-mono">Admin@123</strong></span>
-                  <span className="text-[10px] text-rose-400 underline font-medium">Use Login →</span>
-                </div>
-              </div>
+                <span className="text-xs font-bold tracking-tight">Administrator</span>
+              </button>
 
               {/* Role 2: Department Supervisor */}
-              <div 
+              <button
+                type="button"
                 onClick={() => {
+                  setSelectedRole('supervisor');
                   setEmail('supervisor@sindh.gov.pk');
                   setPassword('Supervisor@123');
-                  setSelectedRole('supervisor');
                   setFormError('');
                 }}
-                className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
-                  email === 'supervisor@sindh.gov.pk'
-                    ? 'bg-purple-950/40 border-purple-500 shadow-xs ring-1 ring-purple-500/50'
-                    : 'bg-slate-950/60 border-slate-800 hover:border-purple-500/50 hover:bg-slate-950'
+                className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center gap-2 transition-all cursor-pointer ${
+                  selectedRole === 'supervisor'
+                    ? 'bg-purple-950/60 border-purple-500 text-purple-300 ring-1 ring-purple-500/60 shadow-xs'
+                    : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 hover:bg-slate-950'
                 }`}
               >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[11px] font-bold text-purple-400 flex items-center gap-1.5">
-                    <EyeIcon size={12} />
-                    <span>Supervisor</span>
-                  </span>
-                  <span className="text-[9px] font-mono text-purple-300 bg-purple-950 px-1.5 py-0.2 rounded border border-purple-800/40">Auditor</span>
+                <div className={`p-1.5 rounded-lg ${selectedRole === 'supervisor' ? 'bg-purple-500/20 text-purple-400' : 'bg-slate-800 text-slate-400'}`}>
+                  <EyeIcon size={16} />
                 </div>
-                <div className="text-[11px] text-slate-300 font-mono truncate">supervisor@sindh.gov.pk</div>
-                <div className="flex items-center justify-between mt-1 text-[10px] text-slate-400">
-                  <span>Pass: <strong className="text-emerald-400 font-mono">Supervisor@123</strong></span>
-                  <span className="text-[10px] text-purple-400 underline font-medium">Use Login →</span>
-                </div>
-              </div>
+                <span className="text-xs font-bold tracking-tight">Supervisor</span>
+              </button>
 
               {/* Role 3: Municipal Project Officer */}
-              <div 
+              <button
+                type="button"
                 onClick={() => {
+                  setSelectedRole('officer');
                   setEmail('officer@kmc.gov.pk');
                   setPassword('Officer@123');
-                  setSelectedRole('officer');
                   setFormError('');
                 }}
-                className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
-                  email === 'officer@kmc.gov.pk'
-                    ? 'bg-blue-950/40 border-blue-500 shadow-xs ring-1 ring-blue-500/50'
-                    : 'bg-slate-950/60 border-slate-800 hover:border-blue-500/50 hover:bg-slate-950'
+                className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center gap-2 transition-all cursor-pointer ${
+                  selectedRole === 'officer'
+                    ? 'bg-blue-950/60 border-blue-500 text-blue-300 ring-1 ring-blue-500/60 shadow-xs'
+                    : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 hover:bg-slate-950'
                 }`}
               >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[11px] font-bold text-blue-400 flex items-center gap-1.5">
-                    <Briefcase size={12} />
-                    <span>Project Officer</span>
-                  </span>
-                  <span className="text-[9px] font-mono text-blue-300 bg-blue-950 px-1.5 py-0.2 rounded border border-blue-800/40">Field Lead</span>
+                <div className={`p-1.5 rounded-lg ${selectedRole === 'officer' ? 'bg-blue-500/20 text-blue-400' : 'bg-slate-800 text-slate-400'}`}>
+                  <Briefcase size={16} />
                 </div>
-                <div className="text-[11px] text-slate-300 font-mono truncate">officer@kmc.gov.pk</div>
-                <div className="flex items-center justify-between mt-1 text-[10px] text-slate-400">
-                  <span>Pass: <strong className="text-emerald-400 font-mono">Officer@123</strong></span>
-                  <span className="text-[10px] text-blue-400 underline font-medium">Use Login →</span>
-                </div>
-              </div>
+                <span className="text-xs font-bold tracking-tight">Project Officer</span>
+              </button>
 
               {/* Role 4: Karachi Citizen */}
-              <div 
+              <button
+                type="button"
                 onClick={() => {
+                  setSelectedRole('citizen');
                   setEmail('citizen@karachiforgot.org');
                   setPassword('Citizen@123');
-                  setSelectedRole('citizen');
                   setFormError('');
                 }}
-                className={`p-2.5 rounded-xl border transition-all cursor-pointer ${
-                  email === 'citizen@karachiforgot.org'
-                    ? 'bg-emerald-950/40 border-emerald-500 shadow-xs ring-1 ring-emerald-500/50'
-                    : 'bg-slate-950/60 border-slate-800 hover:border-emerald-500/50 hover:bg-slate-950'
+                className={`py-3 px-2 rounded-xl border flex flex-col items-center justify-center gap-2 transition-all cursor-pointer ${
+                  selectedRole === 'citizen'
+                    ? 'bg-emerald-950/60 border-emerald-500 text-emerald-300 ring-1 ring-emerald-500/60 shadow-xs'
+                    : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 hover:bg-slate-950'
                 }`}
               >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[11px] font-bold text-emerald-400 flex items-center gap-1.5">
-                    <User size={12} />
-                    <span>Citizen</span>
-                  </span>
-                  <span className="text-[9px] font-mono text-emerald-300 bg-emerald-950 px-1.5 py-0.2 rounded border border-emerald-800/40">Resident</span>
+                <div className={`p-1.5 rounded-lg ${selectedRole === 'citizen' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-800 text-slate-400'}`}>
+                  <User size={16} />
                 </div>
-                <div className="text-[11px] text-slate-300 font-mono truncate">citizen@karachiforgot.org</div>
-                <div className="flex items-center justify-between mt-1 text-[10px] text-slate-400">
-                  <span>Pass: <strong className="text-emerald-400 font-mono">Citizen@123</strong></span>
-                  <span className="text-[10px] text-emerald-400 underline font-medium">Use Login →</span>
-                </div>
-              </div>
+                <span className="text-xs font-bold tracking-tight">Citizen</span>
+              </button>
 
-            </div>
-
-            <div className="text-[10px] text-slate-400 flex items-center gap-1.5 pt-0.5 leading-tight">
-              <AlertCircle size={13} className="text-amber-400 shrink-0" />
-              <span>
-                <strong>Session Rule:</strong> Once logged in, your session is authenticated to your specific role. To use another role, you must Sign Out first.
-              </span>
             </div>
           </div>
 

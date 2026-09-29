@@ -64,8 +64,6 @@ export const INITIAL_REGISTERED_USERS: RegisteredUserRecord[] = [
   }
 ];
 
-export const INITIAL_PROJECTS: Project[] = [];
-
 export const SAMPLE_PROJECTS: Project[] = [
   {
     id: 'prj-1',
@@ -433,7 +431,7 @@ export const SAMPLE_PROJECTS: Project[] = [
   }
 ];
 
-export const INITIAL_COMPLAINTS: Complaint[] = [];
+export const INITIAL_PROJECTS: Project[] = SAMPLE_PROJECTS;
 
 export const SAMPLE_COMPLAINTS: Complaint[] = [
   {
@@ -619,7 +617,7 @@ export const SAMPLE_COMPLAINTS: Complaint[] = [
   }
 ];
 
-export const INITIAL_WASTE_REPORTS: WasteReport[] = [];
+export const INITIAL_COMPLAINTS: Complaint[] = SAMPLE_COMPLAINTS;
 
 export const SAMPLE_WASTE_REPORTS: WasteReport[] = [
   {
@@ -711,7 +709,7 @@ export const SAMPLE_WASTE_REPORTS: WasteReport[] = [
   }
 ];
 
-export const INITIAL_AUDIT_LOGS: AuditLog[] = [];
+export const INITIAL_WASTE_REPORTS: WasteReport[] = SAMPLE_WASTE_REPORTS;
 
 export const SAMPLE_AUDIT_LOGS: AuditLog[] = [
   {
@@ -781,7 +779,7 @@ export const SAMPLE_AUDIT_LOGS: AuditLog[] = [
   }
 ];
 
-export const INITIAL_NOTIFICATIONS: NotificationItem[] = [];
+export const INITIAL_AUDIT_LOGS: AuditLog[] = SAMPLE_AUDIT_LOGS;
 
 export const SAMPLE_NOTIFICATIONS: NotificationItem[] = [
   {
@@ -829,6 +827,8 @@ export const SAMPLE_NOTIFICATIONS: NotificationItem[] = [
     linkId: 'KF-WASTE-402'
   }
 ];
+
+export const INITIAL_NOTIFICATIONS: NotificationItem[] = SAMPLE_NOTIFICATIONS;
 
 export const KARACHI_DISTRICTS_DATA = [
   { name: 'Central', projectsCount: 14, activeIssues: 22, wasteReports: 14, resolvedIssues: 58, overdueCount: 3, population: '3.8M', coordinator: 'KMC Central Zone Office' },
